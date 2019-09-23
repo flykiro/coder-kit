@@ -1,0 +1,101 @@
+
+
+@commonTransitionDuration: 300ms;
+
+.card{
+  position: absolute;
+  z-index: 10;
+  margin: 10px;
+  box-shadow: 0 0 8px 2px #eee;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .8);
+  transition: box-shadow @commonTransitionDuration;
+  &[data-active=true]{
+    z-index: 100;
+    box-shadow: 1px 1px 8px 2px #ccc;
+    background: rgba(255, 255, 255, .9);
+  }
+  &__head{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-bottom: 1px solid #eee;
+    user-select: none;
+    cursor: grab;
+    &-drag-area{
+      margin-right: 10px;
+      color: #ccc;
+      visibility: hidden;
+    }
+    &:hover{
+      .card__head-drag-area{
+        visibility: visible;
+      }
+    }
+    &:active{
+      cursor: grabbing;
+    }
+    &-title{
+      flex: 1;
+      font-size: 18px;
+      color: #333;
+      line-height: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-break: break-all;
+    }
+    &-actions{
+      cursor: pointer;
+      
+    }
+  }
+
+  &__remove-icon{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    background: #de2d2d;
+    border-radius: 8px;
+    margin: 10px;
+    &::before, &::after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      right: 4px;
+      border-bottom: 1px solid #fff;
+      visibility: hidden;
+    }
+    &::before{
+      transform: rotate(44deg);
+    }
+    &::after{
+      transform: rotate(-44deg);
+    }
+    &:hover{
+      &::before, &::after{
+        visibility: visible;
+      }
+    }
+    &:active{
+      opacity: .75;
+    }
+  }
+
+  &__body{
+    min-height: 50px;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  &__resize-corner{
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    cursor: nwse-resize;
+  }
+}

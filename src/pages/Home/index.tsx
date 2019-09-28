@@ -17,12 +17,7 @@ class Home extends PureComponent<any, HomeState> {
     cards: [
       {
         key: '0999',
-        title: 'CSS 颜色值转换111',
-        Content: CSSColorConverter
-      },
-      {
-        key: '09991',
-        title: 'CSS 颜色值转换222',
+        title: 'CSS 颜色值转换',
         Content: CSSColorConverter
       },
     ],
@@ -47,7 +42,8 @@ class Home extends PureComponent<any, HomeState> {
           cards.map((item, index) => <Card
             key={item.key}
             title={item.title}
-            isFocus={focusIndex === index} Content={item.Content}
+            isFocus={focusIndex === index}
+            Content={item.Content}
             onRemove={this.onCardRemove.bind(this, index)}
             onFocus={this.onCardFocus.bind(this, index)}
           />)

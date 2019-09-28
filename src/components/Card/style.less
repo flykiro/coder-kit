@@ -10,6 +10,8 @@
   border-radius: 4px;
   background: rgba(255, 255, 255, .8);
   transition: box-shadow @commonTransitionDuration;
+  display: flex;
+  flex-direction: column;
   &[data-active=true]{
     z-index: 100;
     box-shadow: 1px 1px 8px 2px #ccc;
@@ -53,10 +55,10 @@
 
   &__remove-icon{
     position: relative;
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     background: #de2d2d;
-    border-radius: 8px;
+    border-radius: 7px;
     margin: 10px;
     &::before, &::after{
       content: '';
@@ -84,9 +86,11 @@
   }
 
   &__body{
+    flex: 1;
     min-height: 50px;
     box-sizing: border-box;
     padding: 10px;
+    overflow: scroll;
   }
 
   &__resize-corner{

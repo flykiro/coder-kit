@@ -5,15 +5,12 @@ import store from './store'
 import Home from './pages/Home'
 import { SnackbarProvider ,SnackbarProviderProps} from 'notistack';
 
-
-export default class App extends PureComponent {
-  render () {
-    return <Provider store={store}>
-      <SnackbarProvider maxSnack={8}>
-        <Router>
-          <Route path="/home" component={Home} />
-        </Router>
-      </SnackbarProvider>
-    </Provider>
-  }
+export default function App() {
+  return <Provider store={store}>
+    <SnackbarProvider maxSnack={8}>
+      <Router>
+        <Route path="/home" component={Home} />
+      </Router>
+    </SnackbarProvider>
+  </Provider>
 }

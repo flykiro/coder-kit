@@ -1,9 +1,12 @@
 import { combineReducers, createStore } from 'redux'
-import home from './home'
+import desktop, { DesktopModel } from './desktop'
 
+export type Store = {
+  desktop: DesktopModel
+}
 
 const reducers = combineReducers({
-  home
+  desktop
 })
 
 const store = createStore(reducers)

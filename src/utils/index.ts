@@ -1,6 +1,6 @@
 
-export function arrayToClassName(...arg: string[]) {
-  return [...arg].join(' ')
+export function classes(...args: string[]) {
+  return args.join(' ')
 }
 
-export function noop(...arg: any[]): any {}
+export const noop: (...arg: any[]) => any = () => {}

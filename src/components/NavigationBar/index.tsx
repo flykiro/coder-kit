@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react'
 import style from './style.less'
 
-console.log(style)
-
 export default function NavigationBar() {
   return <div className={style.navigationBar}>
     <div className={style.navigationBarContent}>

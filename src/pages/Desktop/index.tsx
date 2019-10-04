@@ -1,5 +1,4 @@
 import React, { PureComponent, useState } from 'react'
-import NavigationBar from '../../components/NavigationBar'
 import Card from '../../components/Card'
 import CSSColorConverter from '../../components/CSSColorConverter'
 import { withRouter } from 'react-router-dom'
@@ -22,7 +21,6 @@ function Desktop() {
   const onCardRemove = (removeIndex: number) => setCards(cards.filter((card, index) => index !== removeIndex))
 
   return <div className={style.desktop}>
-    <NavigationBar/>
     <div className={style.workArea}>
       {
         cards.map((item, index) => <Card

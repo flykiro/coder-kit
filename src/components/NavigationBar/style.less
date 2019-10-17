@@ -1,27 +1,31 @@
 
-  .navigation-bar{
-    box-shadow: 0 2px 12px 2px #eee;
-    user-select: none;
-    &__content{
-      width: 100%;
-      max-width: 960px;
-      height: 70px;
-      margin: auto;
-    }
-    &__logo{
+@navigationBarHeight: 70px;
+@navigationBarHeight: 0;
 
-    }
-    &__Links{
-      height: inherit;
+.navigation-bar{
+  box-shadow: 0 2px 12px 2px #eee;
+  user-select: none;
+  overflow: hidden;
+  &__content{
+    width: 100%;
+    max-width: 960px;
+    height: @navigationBarHeight;
+    margin: auto;
+  }
+  &__logo{
+
+  }
+  &__Links{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &-item{
       display: flex;
+      height: inherit;
       align-items: center;
-      cursor: pointer;
-      &-item{
-        display: flex;
-        height: inherit;
-        align-items: center;
-        padding: 0 10px;
-        color: #333;
-      }
+      padding: 0 10px;
+      color: #333;
     }
   }
+}

@@ -4,3 +4,6 @@ export function classes(...args: string[]) {
 }
 
 export const noop: (...arg: any[]) => any = () => {}
+
+
+export const ROLE_BUTTON = 'button'

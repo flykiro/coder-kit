@@ -11,7 +11,6 @@ import { chunk, head, drop, dropRight, last } from 'lodash'
 import FileCopy from '@material-ui/icons/FileCopy';
 import * as copy from 'copy-to-clipboard';
 import { withSnackbar, useSnackbar, WithSnackbarProps } from 'notistack';
-
 import { CssColorTypes, convertColor, convertHSLToRGB } from '../../utils/convertColor'
 
 const ColorRegExps = {
@@ -181,4 +180,15 @@ class CSSColorConverter extends PureComponent<IProps, IState> {
   }
 }
 
-export default withSnackbar(CSSColorConverter)
+const component = withSnackbar(CSSColorConverter)
+
+export const APP_CODE = 'CSS_COLOR_CONVERTER'
+
+export const description = {
+  key: APP_CODE,
+  appCode: APP_CODE,
+  title: 'CSS 颜色值转换',
+  component,
+}
+
+export default component

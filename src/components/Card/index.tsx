@@ -1,13 +1,13 @@
 import React, { PureComponent, useState } from 'react'
 import style from './style.less'
-import { classes, noop } from '../../utils'
+import { classes, noop, ROLE_BUTTON } from '../../utils'
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 interface CardProps {
   title?: string
   isFocus?: boolean;
   Content?: React.ComponentType<any>
-  onRemove?: () => any
+  onHide?: () => any
   onFocus?: () => any;
 }
 
@@ -39,7 +39,7 @@ const CARD_MIN_HEIGHT = 220
 export default class Card extends PureComponent<CardProps, CardState> {
   static defaultProps: CardProps = {
     isFocus: false,
-    onRemove: noop,
+    onHide: noop,
     onFocus: noop,
   }
 
@@ -106,7 +106,7 @@ export default class Card extends PureComponent<CardProps, CardState> {
   }
 
   render () {
-    const { title, Content, children, isFocus, onFocus, onRemove } = this.props
+    const { title, Content, children: children, isFocus, onFocus, onHide } = this.props
     const { width, height, translateX, translateY } = this.state
 
     return <div
@@ -120,11 +120,11 @@ export default class Card extends PureComponent<CardProps, CardState> {
         <DragIndicatorIcon className={style.cardHeadDragArea} />
         <div className={style.cardHeadTitle}>{title}</div>
         <div className={style.cardHeadActions}>
-          <div className={classes(style.cardHeadActionsItem, style.cardRemoveIcon)} onClick={onRemove} />
+          <div className={classes(style.cardHeadActionsItem, style.cardRemoveIcon)} role={ROLE_BUTTON} onClick={onHide} />
         </div>
       </div>
       
-      <div className={style.cardBody}>{Content && <Content /> || children}</div>
+      <div className={style.cardBody}>{Content && <Content cardProps={this.props} /> || children}</div>
 
       <div className={style.cardResizeCorner} onMouseDown={this.onMoveStart.bind(this, CardAreas.RESIZE_CORNER)}/>
     </div>

@@ -12,6 +12,7 @@ import FileCopy from '@material-ui/icons/FileCopy';
 import * as copy from 'copy-to-clipboard';
 import { withSnackbar, useSnackbar, WithSnackbarProps } from 'notistack';
 import { CssColorTypes, convertColor, convertHSLToRGB } from '../../utils/convertColor'
+import { ApplicationCodes } from '../../constants'
 
 const ColorRegExps = {
   [CssColorTypes.RGB]: /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)/img,
@@ -29,7 +30,6 @@ const cssColorTypesText = {
   [CssColorTypes.HSLA]: 'hsla',
 }
 
-
 interface IProps extends WithSnackbarProps{
 }
 
@@ -40,6 +40,9 @@ type IState = {
 }
 
 class CSSColorConverter extends PureComponent<IProps, IState> {
+
+  static readonly title = ''
+  static readonly description = ''
 
   state: IState = {
     input: '',
@@ -182,7 +185,7 @@ class CSSColorConverter extends PureComponent<IProps, IState> {
 
 const component = withSnackbar(CSSColorConverter)
 
-export const APP_CODE = 'CSS_COLOR_CONVERTER'
+export const APP_CODE = ApplicationCodes.CSS_COLOR_CONVERTER
 
 export const description = {
   key: APP_CODE,

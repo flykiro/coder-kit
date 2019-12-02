@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { StrictMode } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux'
 import store from './store'
@@ -7,15 +7,17 @@ import { SnackbarProvider ,SnackbarProviderProps} from 'notistack';
 import NavigationBar from './components/NavigationBar'
 
 export default function App() {
-  return <Provider store={store}>
-    <SnackbarProvider maxSnack={8}>
+  return <StrictMode>
+    <Provider store={store}>
+      <SnackbarProvider maxSnack={8}>
 
-      <NavigationBar/>
+        <NavigationBar/>
 
-      <Router>
-        <Route path="/desktop" component={Desktop} />
-      </Router>
-      
-    </SnackbarProvider>
-  </Provider>
+        <Router>
+          <Route path="/desktop" component={Desktop} />
+        </Router>
+        
+      </SnackbarProvider>
+    </Provider>
+  </StrictMode>
 }

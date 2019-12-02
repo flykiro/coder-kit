@@ -22,6 +22,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { ApplicationCodes } from '../../constants'
 
 enum BillsRecorderEnum {
   SELF = 'SELF',
@@ -167,7 +168,7 @@ function BillsInput(props: IProps) {
 
 const component = withSnackbar(BillsInput)
 
-export const APP_CODE = 'BILLS_INPUT'
+export const APP_CODE = ApplicationCodes.BILLS_INPUT
 
 export const description = {
   key: APP_CODE,
